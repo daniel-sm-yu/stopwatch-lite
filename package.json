@@ -1,0 +1,28 @@
+{
+  "name": "stopwatch-lite",
+  "version": "1.0.0",
+  "description": "a stopwatch for all your time-measuring needs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniel-sm-yu/stopwatch-lite.git"
+  },
+  "keywords": [
+    "stopwatch",
+    "timer",
+    "measure",
+    "performance",
+    "duration",
+    "speed",
+    "elapsed"
+  ],
+  "author": "daniel.sm.yu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniel-sm-yu/stopwatch-lite/issues"
+  },
+  "homepage": "https://github.com/daniel-sm-yu/stopwatch-lite#readme"
+}
