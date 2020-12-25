@@ -34,15 +34,13 @@ export function reset(name) {
 
 export function status(name) {
   var previousRecord = times.get(name);
-  if (previousRecord == undefined) {
-    return null;
-  } else if (previousRecord.isStopped) {
+  if (previousRecord == undefined || previousRecord.isStopped) {
     return previousRecord;
-  } else {
-    return {
-      isStopped: previousRecord.isStopped,
-      timeElapsed:
-        previousRecord.timeElapsed + Date.now() - previousRecord.previousStart,
-    };
   }
+
+  return {
+    isStopped: previousRecord.isStopped,
+    timeElapsed:
+      previousRecord.timeElapsed + Date.now() - previousRecord.previousStart,
+  };
 }
