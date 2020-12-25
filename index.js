@@ -46,4 +46,4 @@ stopwatch.status = (name) => {
   };
 };
 
-export default stopwatch;
+exports.stopwatch = stopwatch;
