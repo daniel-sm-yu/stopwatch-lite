@@ -1,6 +1,6 @@
 var times = new Map();
 
-export function start(name) {
+function start(name) {
   var previousRecord = times.get(name);
   if (previousRecord && !previousRecord.isStopped) return;
 
@@ -11,7 +11,7 @@ export function start(name) {
   });
 }
 
-export function stop(name) {
+function stop(name) {
   var previousRecord = times.get(name);
   if (!previousRecord || previousRecord.isStopped) return;
 
@@ -22,7 +22,7 @@ export function stop(name) {
   });
 }
 
-export function reset(name) {
+function reset(name) {
   var previousRecord = times.get(name);
   if (!previousRecord) return;
 
@@ -32,7 +32,7 @@ export function reset(name) {
   });
 }
 
-export function status(name) {
+function observe(name) {
   var previousRecord = times.get(name);
   if (!previousRecord || previousRecord.isStopped) {
     return previousRecord;
@@ -44,3 +44,5 @@ export function status(name) {
       previousRecord.timeElapsed + Date.now() - previousRecord.previousStart,
   };
 }
+
+exports = { start, stop, reset, observe };
