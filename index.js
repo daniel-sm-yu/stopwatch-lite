@@ -1,7 +1,6 @@
-var stopwatch = new Object();
 var times = new Map();
 
-stopwatch.start = (name) => {
+const start = (name) => {
   var previousRecord = times.get(name);
   if (previousRecord && !previousRecord.isStopped) return;
 
@@ -12,7 +11,7 @@ stopwatch.start = (name) => {
   });
 };
 
-stopwatch.stop = (name) => {
+const stop = (name) => {
   var previousRecord = times.get(name);
   if (!previousRecord || previousRecord.isStopped) return;
 
@@ -23,7 +22,7 @@ stopwatch.stop = (name) => {
   });
 };
 
-stopwatch.reset = (name) => {
+const reset = (name) => {
   var previousRecord = times.get(name);
   if (!previousRecord) return;
 
@@ -33,7 +32,7 @@ stopwatch.reset = (name) => {
   });
 };
 
-stopwatch.status = (name) => {
+const status = (name) => {
   var previousRecord = times.get(name);
   if (!previousRecord || previousRecord.isStopped) {
     return previousRecord;
@@ -46,4 +45,9 @@ stopwatch.status = (name) => {
   };
 };
 
-exports.stopwatch = stopwatch;
+export default {
+  start,
+  stop,
+  reset,
+  status,
+};

@@ -13,7 +13,7 @@ npm install stopwatch-lite
 ## Usage
 
 ```js
-const stopwatch = require('stopwatch-lite');
+import stopwatch from 'stopwatch-lite'
 
 stopwatch.start();
 ...
