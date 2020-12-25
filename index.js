@@ -2,18 +2,18 @@ var times = new Map();
 
 export function start(name) {
   var previousRecord = times.get(name);
-  if (previousRecord != undefined && !previousRecord.isStopped) return;
+  if (previousRecord && !previousRecord.isStopped) return;
 
   times.set(name, {
     isStopped: false,
     previousStart: Date.now(),
-    timeElapsed: previousRecord == undefined ? 0 : previousRecord.timeElapsed,
+    timeElapsed: previousRecord ? previousRecord.timeElapsed : 0,
   });
 }
 
 export function stop(name) {
   var previousRecord = times.get(name);
-  if (previousRecord == undefined || previousRecord.isStopped) return;
+  if (!previousRecord || previousRecord.isStopped) return;
 
   times.set(name, {
     isStopped: true,
@@ -24,7 +24,7 @@ export function stop(name) {
 
 export function reset(name) {
   var previousRecord = times.get(name);
-  if (previousRecord == undefined) return;
+  if (!previousRecord) return;
 
   times.set(name, {
     isStopped: true,
@@ -34,7 +34,7 @@ export function reset(name) {
 
 export function status(name) {
   var previousRecord = times.get(name);
-  if (previousRecord == undefined || previousRecord.isStopped) {
+  if (!previousRecord || previousRecord.isStopped) {
     return previousRecord;
   }
 
