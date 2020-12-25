@@ -23,7 +23,13 @@ export function stop(name) {
 }
 
 export function reset(name) {
-  times.delete(name);
+  var previousRecord = times.get(name);
+  if (previousRecord == undefined) return;
+
+  times.set(name, {
+    isStopped: true,
+    timeElapsed: 0,
+  });
 }
 
 export function status(name) {
