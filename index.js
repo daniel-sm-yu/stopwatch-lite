@@ -44,8 +44,7 @@ const status = (name) => {
       previousRecord.timeElapsed + Date.now() - previousRecord.previousStart,
   };
 };
-
-export default {
+module.exports = {
   start,
   stop,
   reset,
