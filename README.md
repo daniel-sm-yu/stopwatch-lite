@@ -13,11 +13,11 @@ npm install stopwatch-lite
 ## Usage
 
 ```js
-import { start, stop, reset, observe } from "stopwatch-lite";
+import { stopwatch } from "stopwatch-lite";
 
-start();
+stopwatch.start();
 ...
-stop();
-console.log(observe());
+stopwatch.stop();
+console.log(stopwatch.status());
 // more to come
 ```

@@ -1,6 +1,7 @@
+var stopwatch = new Object();
 var times = new Map();
 
-function start(name) {
+stopwatch.start = (name) => {
   var previousRecord = times.get(name);
   if (previousRecord && !previousRecord.isStopped) return;
 
@@ -9,9 +10,9 @@ function start(name) {
     previousStart: Date.now(),
     timeElapsed: previousRecord ? previousRecord.timeElapsed : 0,
   });
-}
+};
 
-function stop(name) {
+stopwatch.stop = (name) => {
   var previousRecord = times.get(name);
   if (!previousRecord || previousRecord.isStopped) return;
 
@@ -20,9 +21,9 @@ function stop(name) {
     timeElapsed:
       previousRecord.timeElapsed + Date.now() - previousRecord.previousStart,
   });
-}
+};
 
-function reset(name) {
+stopwatch.reset = (name) => {
   var previousRecord = times.get(name);
   if (!previousRecord) return;
 
@@ -30,9 +31,9 @@ function reset(name) {
     isStopped: true,
     timeElapsed: 0,
   });
-}
+};
 
-function observe(name) {
+stopwatch.status = (name) => {
   var previousRecord = times.get(name);
   if (!previousRecord || previousRecord.isStopped) {
     return previousRecord;
@@ -43,6 +44,6 @@ function observe(name) {
     timeElapsed:
       previousRecord.timeElapsed + Date.now() - previousRecord.previousStart,
   };
-}
+};
 
-exports = { start, stop, reset, observe };
+module.exports = stopwatch;
