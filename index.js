@@ -32,21 +32,18 @@ const reset = (name) => {
   });
 };
 
-const status = (name) => {
+const read = (name) => {
   var previousRecord = times.get(name);
-  if (!previousRecord || previousRecord.isStopped) {
-    return previousRecord;
-  }
+  if (!previousRecord) return null;
 
-  return {
-    isStopped: previousRecord.isStopped,
-    timeElapsed:
-      previousRecord.timeElapsed + Date.now() - previousRecord.previousStart,
-  };
+  return previousRecord.timeElapsed + previousRecord.isStopped
+    ? 0
+    : Date.now() - previousRecord.previousStart;
 };
+
 module.exports = {
   start,
   stop,
   reset,
-  status,
+  read,
 };
