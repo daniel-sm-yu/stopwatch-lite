@@ -1,9 +1,7 @@
 # stopwatch-lite
-[![npm version](https://img.shields.io/npm/v/stopwatch-lite.svg?style=flat-square)](https://www.npmjs.org/package/stopwatch-lite)
-[![install size](https://packagephobia.now.sh/badge?p=stopwatch-lite)](https://packagephobia.now.sh/result?p=stopwatch-lite)
-[![npm downloads](https://img.shields.io/npm/dm/stopwatch-lite.svg?style=flat-square)](http://npm-stat.com/charts.html?package=stopwatch-lite)
-
-[![NPM](https://nodei.co/npm/stopwatch-lite.png?stars=true)](https://www.npmjs.com/package/stopwatch-lite)
+[![npm version](https://img.shields.io/npm/v/stopwatch-lite.svg?style=flat)](https://www.npmjs.org/package/stopwatch-lite)
+[![install size](https://packagephobia.com/badge?p=stopwatch-lite)](https://packagephobia.com/result?p=stopwatch-lite)
+[![npm downloads](https://img.shields.io/npm/dm/stopwatch-lite.svg?style=flat)](http://npm-stat.com/charts.html?package=stopwatch-lite)
 
 A stopwatch for all your time-measuring needs
 
@@ -41,14 +39,13 @@ sw.start(123);
 
 foo().then(() => {
   sw.stop("example");
+  console.log(`foo execution time: ${sw.read("example")} ms`);
 });
 
 bar().then(() => {
   sw.stop(123);
+  console.log(`bar execution time: ${sw.read(123)} ms`);
 });
-
-console.log(`foo execution time: ${sw.read("example")} ms`);
-console.log(`bar execution time: ${sw.read(123)} ms`);
 ```
 ```js
 import sw from "stopwatch-lite";

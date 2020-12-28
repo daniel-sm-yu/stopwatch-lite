@@ -1,6 +1,6 @@
 {
   "name": "stopwatch-lite",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "a stopwatch for all your time-measuring needs",
   "main": "index.js",
   "scripts": {
